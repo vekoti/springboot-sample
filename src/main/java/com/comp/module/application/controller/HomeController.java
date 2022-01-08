@@ -1,14 +1,22 @@
 package com.comp.module.application.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class HomeController {
+	
+	
+	@Value("${user}")
+	private String user;
+	
+	@Value("${password}")
+	private String password;
 
     @RequestMapping("/")
     String home() {
-        return "Hello World";
+        return "Hello World, user = " + user + " password = " + password;
     }
 
 }
